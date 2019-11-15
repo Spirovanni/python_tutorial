@@ -8,9 +8,10 @@ from .models import Book
 class Another(View):
 
     books = Book.objects.all()
-    for book in books:
+    output = ''
 
-        output = f"We have {len(books)} books in DB"
+    for book in books:
+        output += f"We have {book.title} book with ID {book.id} in DB and it has a price of {book.price}<br>"
 
     def get(self, request):
         return HttpResponse(self.output)
