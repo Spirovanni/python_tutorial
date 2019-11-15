@@ -7,7 +7,7 @@ from .models import Book
 # Create your views here.
 class Another(View):
 
-    books = Book.objects.all()
+    books = Book.objects.filter(is_published=True)
     output = ''
 
     for book in books:
